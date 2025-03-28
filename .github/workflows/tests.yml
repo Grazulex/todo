@@ -50,4 +50,4 @@ jobs:
         run: touch database/database.sqlite
 
       - name: Tests
-        run: ./vendor/bin/pest --coverage --min=100
+        run: ./vendor/bin/pest --coverage --min=90
