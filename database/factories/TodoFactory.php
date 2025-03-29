@@ -21,8 +21,8 @@ final class TodoFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraph,
+            'title' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
             'status' => $this->faker->randomElement(StatusEnum::cases()),
             'user_id' => User::factory(),
         ];
