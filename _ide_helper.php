@@ -6422,6 +6422,145 @@ namespace Illuminate\Support\Facades {
     /**
      * 
      *
+     * @see \Illuminate\Encryption\Encrypter
+     */
+    class Crypt {
+        /**
+         * Determine if the given key and cipher combination is valid.
+         *
+         * @param string $key
+         * @param string $cipher
+         * @return bool 
+         * @static 
+         */
+        public static function supported($key, $cipher)
+        {
+            return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
+        }
+
+        /**
+         * Create a new encryption key for the given cipher.
+         *
+         * @param string $cipher
+         * @return string 
+         * @static 
+         */
+        public static function generateKey($cipher)
+        {
+            return \Illuminate\Encryption\Encrypter::generateKey($cipher);
+        }
+
+        /**
+         * Encrypt the given value.
+         *
+         * @param mixed $value
+         * @param bool $serialize
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
+         * @static 
+         */
+        public static function encrypt($value, $serialize = true)
+        {
+            /** @var \Illuminate\Encryption\Encrypter $instance */
+            return $instance->encrypt($value, $serialize);
+        }
+
+        /**
+         * Encrypt a string without serialization.
+         *
+         * @param string $value
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
+         * @static 
+         */
+        public static function encryptString($value)
+        {
+            /** @var \Illuminate\Encryption\Encrypter $instance */
+            return $instance->encryptString($value);
+        }
+
+        /**
+         * Decrypt the given value.
+         *
+         * @param string $payload
+         * @param bool $unserialize
+         * @return mixed 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
+         * @static 
+         */
+        public static function decrypt($payload, $unserialize = true)
+        {
+            /** @var \Illuminate\Encryption\Encrypter $instance */
+            return $instance->decrypt($payload, $unserialize);
+        }
+
+        /**
+         * Decrypt the given string without unserialization.
+         *
+         * @param string $payload
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
+         * @static 
+         */
+        public static function decryptString($payload)
+        {
+            /** @var \Illuminate\Encryption\Encrypter $instance */
+            return $instance->decryptString($payload);
+        }
+
+        /**
+         * Get the encryption key that the encrypter is currently using.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getKey()
+        {
+            /** @var \Illuminate\Encryption\Encrypter $instance */
+            return $instance->getKey();
+        }
+
+        /**
+         * Get the current encryption key and all previous encryption keys.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getAllKeys()
+        {
+            /** @var \Illuminate\Encryption\Encrypter $instance */
+            return $instance->getAllKeys();
+        }
+
+        /**
+         * Get the previous encryption keys.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getPreviousKeys()
+        {
+            /** @var \Illuminate\Encryption\Encrypter $instance */
+            return $instance->getPreviousKeys();
+        }
+
+        /**
+         * Set the previous / legacy encryption keys that should be utilized if decryption fails.
+         *
+         * @param array $keys
+         * @return \Illuminate\Encryption\Encrypter 
+         * @static 
+         */
+        public static function previousKeys($keys)
+        {
+            /** @var \Illuminate\Encryption\Encrypter $instance */
+            return $instance->previousKeys($keys);
+        }
+
+            }
+    /**
+     * 
+     *
      * @see https://carbon.nesbot.com/docs/
      * @see https://github.com/briannesbitt/Carbon/blob/master/src/Carbon/Factory.php
      * @method static \Illuminate\Support\Carbon create($year = 0, $month = 1, $day = 1, $hour = 0, $minute = 0, $second = 0, $timezone = null)
@@ -23012,6 +23151,737 @@ namespace Barryvdh\Debugbar\Facades {
             }
     }
 
+namespace Flux {
+    /**
+     * 
+     *
+     * @see \Flux\FluxManager
+     */
+    class Flux {
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function boot()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->boot();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function ensurePro()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->ensurePro();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function pro()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->pro();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function markAssetsRendered()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->markAssetsRendered();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function scripts($options = [])
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->scripts($options);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function fluxAppearance($options = [])
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->fluxAppearance($options);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function editorStyles()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->editorStyles();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function editorScripts()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->editorScripts();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function classes($styles = null)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->classes($styles);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function disallowWireModel($attributes, $componentName)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->disallowWireModel($attributes, $componentName);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function splitAttributes($attributes, $by = [], $strict = false)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->splitAttributes($attributes, $by, $strict);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function restorePassThroughProps($attributes, $passThroughProps)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->restorePassThroughProps($attributes, $passThroughProps);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function forwardedAttributes($attributes, $propKeys)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->forwardedAttributes($attributes, $propKeys);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function attributesAfter($prefix, $attributes, $default = [])
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->attributesAfter($prefix, $attributes, $default);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function applyInset($inset, $top, $right, $bottom, $left)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->applyInset($inset, $top, $right, $bottom, $left);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function componentExists($name)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->componentExists($name);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bootComponents()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->bootComponents();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bootModal()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->bootModal();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function modal($name)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->modal($name);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function modals()
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->modals();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function toast($text, $heading = null, $duration = 5000, $variant = null, $position = null)
+        {
+            /** @var \Flux\FluxManager $instance */
+            return $instance->toast($text, $heading, $duration, $variant, $position);
+        }
+
+            }
+    }
+
+namespace Livewire {
+    /**
+     * 
+     *
+     * @see \Livewire\LivewireManager
+     */
+    class Livewire {
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setProvider($provider)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->setProvider($provider);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function provide($callback)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->provide($callback);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function component($name, $class = null)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->component($name, $class);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function componentHook($hook)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->componentHook($hook);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function propertySynthesizer($synth)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->propertySynthesizer($synth);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function directive($name, $callback)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->directive($name, $callback);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function precompiler($callback)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->precompiler($callback);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function new($name, $id = null)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->new($name, $id);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function isDiscoverable($componentNameOrClass)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->isDiscoverable($componentNameOrClass);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function resolveMissingComponent($resolver)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->resolveMissingComponent($resolver);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function mount($name, $params = [], $key = null)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->mount($name, $params, $key);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function snapshot($component)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->snapshot($component);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function fromSnapshot($snapshot)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->fromSnapshot($snapshot);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function listen($eventName, $callback)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->listen($eventName, $callback);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function current()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->current();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function findSynth($keyOrTarget, $component)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->findSynth($keyOrTarget, $component);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function update($snapshot, $diff, $calls)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->update($snapshot, $diff, $calls);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function updateProperty($component, $path, $value)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->updateProperty($component, $path, $value);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function isLivewireRequest()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->isLivewireRequest();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function componentHasBeenRendered()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->componentHasBeenRendered();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function forceAssetInjection()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->forceAssetInjection();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setUpdateRoute($callback)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->setUpdateRoute($callback);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getUpdateUri()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->getUpdateUri();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setScriptRoute($callback)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->setScriptRoute($callback);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function useScriptTagAttributes($attributes)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->useScriptTagAttributes($attributes);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function withUrlParams($params)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->withUrlParams($params);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function withQueryParams($params)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->withQueryParams($params);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function withCookie($name, $value)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->withCookie($name, $value);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function withCookies($cookies)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->withCookies($cookies);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function withHeaders($headers)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->withHeaders($headers);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function withoutLazyLoading()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->withoutLazyLoading();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function test($name, $params = [])
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->test($name, $params);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function visit($name)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->visit($name);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function actingAs($user, $driver = null)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->actingAs($user, $driver);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function isRunningServerless()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->isRunningServerless();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function addPersistentMiddleware($middleware)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->addPersistentMiddleware($middleware);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setPersistentMiddleware($middleware)
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->setPersistentMiddleware($middleware);
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getPersistentMiddleware()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->getPersistentMiddleware();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function flushState()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->flushState();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function originalUrl()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->originalUrl();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function originalPath()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->originalPath();
+        }
+
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function originalMethod()
+        {
+            /** @var \Livewire\LivewireManager $instance */
+            return $instance->originalMethod();
+        }
+
+            }
+    /**
+     * 
+     *
+     */
+    class Component {
+        /**
+         * 
+         *
+         * @see \Flux\FluxManager::bootModal()
+         * @param mixed $name
+         * @static 
+         */
+        public static function modal($name)
+        {
+            return \Livewire\Component::modal($name);
+        }
+
+            }
+    }
+
 namespace Illuminate\Support {
     /**
      * 
@@ -23120,6 +23990,169 @@ namespace Illuminate\Http {
             }
     }
 
+namespace Illuminate\Routing {
+    /**
+     * 
+     *
+     */
+    class Route {
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportLazyLoading\SupportLazyLoading::registerRouteMacro()
+         * @param mixed $enabled
+         * @static 
+         */
+        public static function lazy($enabled = true)
+        {
+            return \Illuminate\Routing\Route::lazy($enabled);
+        }
+
+            }
+    }
+
+namespace Illuminate\View {
+    /**
+     * 
+     *
+     */
+    class Factory {
+        /**
+         * 
+         *
+         * @see \Flux\FluxServiceProvider::bootMacros()
+         * @static 
+         */
+        public static function getCurrentComponentData()
+        {
+            return \Illuminate\View\Factory::getCurrentComponentData();
+        }
+
+            }
+    /**
+     * 
+     *
+     */
+    class ComponentAttributeBag {
+        /**
+         * 
+         *
+         * @see \Flux\FluxServiceProvider::bootMacros()
+         * @param mixed $key
+         * @static 
+         */
+        public static function pluck($key)
+        {
+            return \Illuminate\View\ComponentAttributeBag::pluck($key);
+        }
+
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportBladeAttributes\SupportBladeAttributes::provide()
+         * @param mixed $name
+         * @static 
+         */
+        public static function wire($name)
+        {
+            return \Illuminate\View\ComponentAttributeBag::wire($name);
+        }
+
+            }
+    /**
+     * 
+     *
+     */
+    class View {
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
+         * @param mixed $data
+         * @static 
+         */
+        public static function layoutData($data = [])
+        {
+            return \Illuminate\View\View::layoutData($data);
+        }
+
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
+         * @param mixed $section
+         * @static 
+         */
+        public static function section($section)
+        {
+            return \Illuminate\View\View::section($section);
+        }
+
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
+         * @param mixed $title
+         * @static 
+         */
+        public static function title($title)
+        {
+            return \Illuminate\View\View::title($title);
+        }
+
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
+         * @param mixed $slot
+         * @static 
+         */
+        public static function slot($slot)
+        {
+            return \Illuminate\View\View::slot($slot);
+        }
+
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
+         * @param mixed $view
+         * @param mixed $params
+         * @static 
+         */
+        public static function extends($view, $params = [])
+        {
+            return \Illuminate\View\View::extends($view, $params);
+        }
+
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
+         * @param mixed $view
+         * @param mixed $params
+         * @static 
+         */
+        public static function layout($view, $params = [])
+        {
+            return \Illuminate\View\View::layout($view, $params);
+        }
+
+        /**
+         * 
+         *
+         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
+         * @param callable $callback
+         * @static 
+         */
+        public static function response($callback)
+        {
+            return \Illuminate\View\View::response($callback);
+        }
+
+            }
+    }
+
 
 namespace  {
     class App extends \Illuminate\Support\Facades\App {}
@@ -23134,6 +24167,7 @@ namespace  {
     class Config extends \Illuminate\Support\Facades\Config {}
     class Context extends \Illuminate\Support\Facades\Context {}
     class Cookie extends \Illuminate\Support\Facades\Cookie {}
+    class Crypt extends \Illuminate\Support\Facades\Crypt {}
     class Date extends \Illuminate\Support\Facades\Date {}
     class DB extends \Illuminate\Support\Facades\DB {}
 
@@ -27800,6 +28834,8 @@ namespace  {
     class View extends \Illuminate\Support\Facades\View {}
     class Vite extends \Illuminate\Support\Facades\Vite {}
     class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
+    class Flux extends \Flux\Flux {}
+    class Livewire extends \Livewire\Livewire {}
 }
 
 

@@ -27,7 +27,6 @@ final class StoreTodoRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'min:3', 'max:50'],
             'description' => ['nullable', 'string', 'max:100'],
-            'user_id' => ['required', 'integer', 'exists:users,id'],
         ];
     }
 }

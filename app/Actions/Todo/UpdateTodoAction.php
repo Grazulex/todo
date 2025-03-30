@@ -6,32 +6,30 @@ namespace App\Actions\Todo;
 
 use App\Events\TodoCreated;
 use App\Models\Todo;
-use App\Models\User;
-use Exception;
 use Illuminate\Support\Facades\DB;
 use Throwable;
 
-final class CreateTodoAction
+final class UpdateTodoAction
 {
     /**
-     * Create a new todo instance.
+     * update a todo instance.
      *
      * @param  array{title: string, description: string|null}  $attributes
      *
      * @throws Throwable
      */
-    public function handle(?User $user, array $attributes): Todo
+    public function handle(Todo $todo, array $attributes): Todo
     {
-        return DB::transaction(function () use ($user, $attributes): Todo {
-            if (! $user instanceof User) {
-                throw new Exception('User not found');
-            }
-            $todo = $user->todos()->create([
+        return DB::transaction(function () use ($todo, $attributes): Todo {
+
+            $todo->update([
                 'title' => $attributes['title'],
                 'description' => $attributes['description'],
             ]);
 
-            event(TodoCreated::class, $todo);
+            $todo->refresh();
+
+            // event(TodoCreated::class, $todo);
 
             return $todo;
         });
