@@ -21,6 +21,7 @@ use Illuminate\Support\Str;
  * @property-read string $locale
  * @property-read CarbonImmutable|null $email_verified_at
  * @property-read Todo[] $todos
+ * @property-read string $initials
  * @property-read CarbonImmutable $created_at
  * @property-read CarbonImmutable $updated_at
  */
