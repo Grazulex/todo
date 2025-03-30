@@ -19,6 +19,7 @@ final class DestroyTodoAction
     {
         return DB::transaction(function () use ($todo): true {
             $todo->delete();
+
             return true;
         });
     }

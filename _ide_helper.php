@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 12.3.0.
+ * Generated for Laravel 12.4.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -6563,77 +6563,96 @@ namespace Illuminate\Support\Facades {
      *
      * @see https://carbon.nesbot.com/docs/
      * @see https://github.com/briannesbitt/Carbon/blob/master/src/Carbon/Factory.php
-     * @method static \Illuminate\Support\Carbon create($year = 0, $month = 1, $day = 1, $hour = 0, $minute = 0, $second = 0, $timezone = null)
+     * @method static bool canBeCreatedFromFormat(?string $date, string $format)
+     * @method static \Illuminate\Support\Carbon|null create($year = 0, $month = 1, $day = 1, $hour = 0, $minute = 0, $second = 0, $timezone = null)
      * @method static \Illuminate\Support\Carbon createFromDate($year = null, $month = null, $day = null, $timezone = null)
-     * @method static \Illuminate\Support\Carbon|false createFromFormat($format, $time, $timezone = null)
+     * @method static \Illuminate\Support\Carbon|null createFromFormat($format, $time, $timezone = null)
+     * @method static \Illuminate\Support\Carbon|null createFromIsoFormat(string $format, string $time, $timezone = null, ?string $locale = 'en', ?TranslatorInterface $translator = null)
+     * @method static \Illuminate\Support\Carbon|null createFromLocaleFormat(string $format, string $locale, string $time, $timezone = null)
+     * @method static \Illuminate\Support\Carbon|null createFromLocaleIsoFormat(string $format, string $locale, string $time, $timezone = null)
      * @method static \Illuminate\Support\Carbon createFromTime($hour = 0, $minute = 0, $second = 0, $timezone = null)
-     * @method static \Illuminate\Support\Carbon createFromTimeString($time, $timezone = null)
-     * @method static \Illuminate\Support\Carbon createFromTimestamp($timestamp, $timezone = null)
-     * @method static \Illuminate\Support\Carbon createFromTimestampMs($timestamp, $timezone = null)
-     * @method static \Illuminate\Support\Carbon createFromTimestampUTC($timestamp)
+     * @method static \Illuminate\Support\Carbon createFromTimeString(string $time, DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon createFromTimestamp(string|int|float $timestamp, DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon createFromTimestampMs(string|int|float $timestamp, DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon createFromTimestampMsUTC($timestamp)
+     * @method static \Illuminate\Support\Carbon createFromTimestampUTC(string|int|float $timestamp)
      * @method static \Illuminate\Support\Carbon createMidnightDate($year = null, $month = null, $day = null, $timezone = null)
-     * @method static \Illuminate\Support\Carbon|false createSafe($year = null, $month = null, $day = null, $hour = null, $minute = null, $second = null, $timezone = null)
+     * @method static \Illuminate\Support\Carbon|null createSafe($year = null, $month = null, $day = null, $hour = null, $minute = null, $second = null, $timezone = null)
+     * @method static \Illuminate\Support\Carbon createStrict(?int $year = 0, ?int $month = 1, ?int $day = 1, ?int $hour = 0, ?int $minute = 0, ?int $second = 0, $timezone = null)
      * @method static void disableHumanDiffOption($humanDiffOption)
      * @method static void enableHumanDiffOption($humanDiffOption)
-     * @method static mixed executeWithLocale($locale, $func)
+     * @method static mixed executeWithLocale(string $locale, callable $func)
      * @method static \Illuminate\Support\Carbon fromSerialized($value)
      * @method static array getAvailableLocales()
+     * @method static array getAvailableLocalesInfo()
      * @method static array getDays()
+     * @method static ?string getFallbackLocale()
+     * @method static array getFormatsToIsoReplacements()
      * @method static int getHumanDiffOptions()
      * @method static array getIsoUnits()
-     * @method static array getLastErrors()
+     * @method static array|false getLastErrors()
      * @method static string getLocale()
      * @method static int getMidDayAt()
+     * @method static string getTimeFormatByPrecision(string $unitPrecision)
+     * @method static string|Closure|null getTranslationMessageWith($translator, string $key, ?string $locale = null, ?string $default = null)
      * @method static \Illuminate\Support\Carbon|null getTestNow()
      * @method static \Symfony\Contracts\Translation\TranslatorInterface getTranslator()
-     * @method static int getWeekEndsAt()
-     * @method static int getWeekStartsAt()
+     * @method static int getWeekEndsAt(?string $locale = null)
+     * @method static int getWeekStartsAt(?string $locale = null)
      * @method static array getWeekendDays()
-     * @method static bool hasFormat($date, $format)
+     * @method static bool hasFormat(string $date, string $format)
+     * @method static bool hasFormatWithModifiers(string $date, string $format)
      * @method static bool hasMacro($name)
-     * @method static bool hasRelativeKeywords($time)
+     * @method static bool hasRelativeKeywords(?string $time)
      * @method static bool hasTestNow()
-     * @method static \Illuminate\Support\Carbon instance($date)
+     * @method static \Illuminate\Support\Carbon instance(DateTimeInterface $date)
      * @method static bool isImmutable()
      * @method static bool isModifiableUnit($unit)
      * @method static bool isMutable()
      * @method static bool isStrictModeEnabled()
-     * @method static bool localeHasDiffOneDayWords($locale)
-     * @method static bool localeHasDiffSyntax($locale)
-     * @method static bool localeHasDiffTwoDayWords($locale)
+     * @method static bool localeHasDiffOneDayWords(string $locale)
+     * @method static bool localeHasDiffSyntax(string $locale)
+     * @method static bool localeHasDiffTwoDayWords(string $locale)
      * @method static bool localeHasPeriodSyntax($locale)
-     * @method static bool localeHasShortUnits($locale)
-     * @method static void macro($name, $macro)
-     * @method static \Illuminate\Support\Carbon|null make($var)
-     * @method static \Illuminate\Support\Carbon maxValue()
-     * @method static \Illuminate\Support\Carbon minValue()
-     * @method static void mixin($mixin)
-     * @method static \Illuminate\Support\Carbon now($timezone = null)
-     * @method static \Illuminate\Support\Carbon parse($time = null, $timezone = null)
+     * @method static bool localeHasShortUnits(string $locale)
+     * @method static void macro(string $name, ?callable $macro)
+     * @method static \Illuminate\Support\Carbon|null make($var, DateTimeZone|string|null $timezone = null)
+     * @method static void mixin(object|string $mixin)
+     * @method static \Illuminate\Support\Carbon now(DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon parse(DateTimeInterface|WeekDay|Month|string|int|float|null $time, DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon parseFromLocale(string $time, ?string $locale = null, DateTimeZone|string|int|null $timezone = null)
      * @method static string pluralUnit(string $unit)
+     * @method static \Illuminate\Support\Carbon|null rawCreateFromFormat(string $format, string $time, $timezone = null)
+     * @method static \Illuminate\Support\Carbon rawParse(DateTimeInterface|WeekDay|Month|string|int|float|null $time, DateTimeZone|string|int|null $timezone = null)
      * @method static void resetMonthsOverflow()
      * @method static void resetToStringFormat()
      * @method static void resetYearsOverflow()
      * @method static void serializeUsing($callback)
+     * @method static void setFallbackLocale(string $locale)
      * @method static void setHumanDiffOptions($humanDiffOptions)
-     * @method static bool setLocale($locale)
+     * @method static void setLocale(string $locale)
      * @method static void setMidDayAt($hour)
-     * @method static void setTestNow($testNow = null)
-     * @method static void setToStringFormat($format)
+     * @method static void setTestNow(mixed $testNow = null)
+     * @method static void setTestNowAndTimezone(mixed $testNow = null, $timezone = null)
+     * @method static void setToStringFormat(string|Closure|null $format)
      * @method static void setTranslator(\Symfony\Contracts\Translation\TranslatorInterface $translator)
-     * @method static void setUtf8($utf8)
      * @method static void setWeekEndsAt($day)
      * @method static void setWeekStartsAt($day)
      * @method static void setWeekendDays($days)
      * @method static bool shouldOverflowMonths()
      * @method static bool shouldOverflowYears()
      * @method static string singularUnit(string $unit)
-     * @method static \Illuminate\Support\Carbon today($timezone = null)
-     * @method static \Illuminate\Support\Carbon tomorrow($timezone = null)
+     * @method static void sleep(int|float $seconds)
+     * @method static \Illuminate\Support\Carbon today(DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon tomorrow(DateTimeZone|string|int|null $timezone = null)
+     * @method static string translateTimeString(string $timeString, ?string $from = null, ?string $to = null, int $mode = CarbonInterface::TRANSLATE_ALL)
+     * @method static string translateWith(TranslatorInterface $translator, string $key, array $parameters = [], $number = null)
      * @method static void useMonthsOverflow($monthsOverflow = true)
      * @method static void useStrictMode($strictModeEnabled = true)
      * @method static void useYearsOverflow($yearsOverflow = true)
-     * @method static \Illuminate\Support\Carbon yesterday($timezone = null)
+     * @method static mixed withTestNow(mixed $testNow, callable $callback)
+     * @method static static withTimeZone(DateTimeZone|string|int|null $timezone)
+     * @method static \Illuminate\Support\Carbon yesterday(DateTimeZone|string|int|null $timezone = null)
      * @see \Illuminate\Support\DateFactory
      */
     class Date {
@@ -10805,13 +10824,14 @@ namespace Illuminate\Support\Facades {
         /**
          * Flush the log context on all currently resolved channels.
          *
+         * @param string[]|null $keys
          * @return \Illuminate\Log\LogManager 
          * @static 
          */
-        public static function withoutContext()
+        public static function withoutContext($keys = null)
         {
             /** @var \Illuminate\Log\LogManager $instance */
-            return $instance->withoutContext();
+            return $instance->withoutContext($keys);
         }
 
         /**
@@ -12684,6 +12704,20 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Get all of the jobs by listener class, passing an optional truth-test callback.
+         *
+         * @param class-string $listenerClass
+         * @param (\Closure(mixed, \Illuminate\Events\CallQueuedListener, string|null, mixed): bool)|null $callback
+         * @return \Illuminate\Support\Collection<int, \Illuminate\Events\CallQueuedListener> 
+         * @static 
+         */
+        public static function listenersPushed($listenerClass, $callback = null)
+        {
+            /** @var \Illuminate\Support\Testing\Fakes\QueueFake $instance */
+            return $instance->listenersPushed($listenerClass, $callback);
+        }
+
+        /**
          * Determine if there are any stored jobs for a given class.
          *
          * @param string $job
@@ -13540,6 +13574,7 @@ namespace Illuminate\Support\Facades {
     /**
      * 
      *
+     * @method static array|(\Illuminate\Http\UploadedFile|\Illuminate\Http\UploadedFile[]|null file(string|null $key = null, mixed $default = null)
      * @method static array validate(array $rules, ...$params)
      * @method static array validateWithBag(string $errorBag, array $rules, ...$params)
      * @method static bool hasValidSignature(bool $absolute = true)
@@ -15602,7 +15637,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get an array of all of the files on the request.
          *
-         * @return array 
+         * @return array<int, \Illuminate\Http\UploadedFile|\Illuminate\Http\UploadedFile[]> 
          * @static 
          */
         public static function allFiles()
@@ -15629,7 +15664,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string|null $key
          * @param mixed $default
-         * @return \Illuminate\Http\UploadedFile|\Illuminate\Http\UploadedFile[]|array|null 
+         * @return ($key is null ? array<int, \Illuminate\Http\UploadedFile|\Illuminate\Http\UploadedFile[]> : \Illuminate\Http\UploadedFile|\Illuminate\Http\UploadedFile[]|null)
          * @static 
          */
         public static function file($key = null, $default = null)
@@ -23400,13 +23435,36 @@ namespace Livewire {
      */
     class Livewire {
         /**
+         * {@inheritDoc}
+         *
+         * @static 
+         */
+        public static function mount($name, $params = [], $key = null)
+        {
+            /** @var \Livewire\Volt\LivewireManager $instance */
+            return $instance->mount($name, $params, $key);
+        }
+
+        /**
+         * {@inheritDoc}
+         *
+         * @static 
+         */
+        public static function update($snapshot, $diff, $calls)
+        {
+            /** @var \Livewire\Volt\LivewireManager $instance */
+            return $instance->update($snapshot, $diff, $calls);
+        }
+
+        /**
          * 
          *
          * @static 
          */
         public static function setProvider($provider)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->setProvider($provider);
         }
 
@@ -23417,7 +23475,8 @@ namespace Livewire {
          */
         public static function provide($callback)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->provide($callback);
         }
 
@@ -23428,7 +23487,8 @@ namespace Livewire {
          */
         public static function component($name, $class = null)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->component($name, $class);
         }
 
@@ -23439,7 +23499,8 @@ namespace Livewire {
          */
         public static function componentHook($hook)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->componentHook($hook);
         }
 
@@ -23450,7 +23511,8 @@ namespace Livewire {
          */
         public static function propertySynthesizer($synth)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->propertySynthesizer($synth);
         }
 
@@ -23461,7 +23523,8 @@ namespace Livewire {
          */
         public static function directive($name, $callback)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->directive($name, $callback);
         }
 
@@ -23472,7 +23535,8 @@ namespace Livewire {
          */
         public static function precompiler($callback)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->precompiler($callback);
         }
 
@@ -23483,7 +23547,8 @@ namespace Livewire {
          */
         public static function new($name, $id = null)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->new($name, $id);
         }
 
@@ -23494,7 +23559,8 @@ namespace Livewire {
          */
         public static function isDiscoverable($componentNameOrClass)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->isDiscoverable($componentNameOrClass);
         }
 
@@ -23505,19 +23571,9 @@ namespace Livewire {
          */
         public static function resolveMissingComponent($resolver)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->resolveMissingComponent($resolver);
-        }
-
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function mount($name, $params = [], $key = null)
-        {
-            /** @var \Livewire\LivewireManager $instance */
-            return $instance->mount($name, $params, $key);
         }
 
         /**
@@ -23527,7 +23583,8 @@ namespace Livewire {
          */
         public static function snapshot($component)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->snapshot($component);
         }
 
@@ -23538,7 +23595,8 @@ namespace Livewire {
          */
         public static function fromSnapshot($snapshot)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->fromSnapshot($snapshot);
         }
 
@@ -23549,7 +23607,8 @@ namespace Livewire {
          */
         public static function listen($eventName, $callback)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->listen($eventName, $callback);
         }
 
@@ -23560,7 +23619,8 @@ namespace Livewire {
          */
         public static function current()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->current();
         }
 
@@ -23571,19 +23631,9 @@ namespace Livewire {
          */
         public static function findSynth($keyOrTarget, $component)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->findSynth($keyOrTarget, $component);
-        }
-
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function update($snapshot, $diff, $calls)
-        {
-            /** @var \Livewire\LivewireManager $instance */
-            return $instance->update($snapshot, $diff, $calls);
         }
 
         /**
@@ -23593,7 +23643,8 @@ namespace Livewire {
          */
         public static function updateProperty($component, $path, $value)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->updateProperty($component, $path, $value);
         }
 
@@ -23604,7 +23655,8 @@ namespace Livewire {
          */
         public static function isLivewireRequest()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->isLivewireRequest();
         }
 
@@ -23615,7 +23667,8 @@ namespace Livewire {
          */
         public static function componentHasBeenRendered()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->componentHasBeenRendered();
         }
 
@@ -23626,7 +23679,8 @@ namespace Livewire {
          */
         public static function forceAssetInjection()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->forceAssetInjection();
         }
 
@@ -23637,7 +23691,8 @@ namespace Livewire {
          */
         public static function setUpdateRoute($callback)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->setUpdateRoute($callback);
         }
 
@@ -23648,7 +23703,8 @@ namespace Livewire {
          */
         public static function getUpdateUri()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->getUpdateUri();
         }
 
@@ -23659,7 +23715,8 @@ namespace Livewire {
          */
         public static function setScriptRoute($callback)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->setScriptRoute($callback);
         }
 
@@ -23670,7 +23727,8 @@ namespace Livewire {
          */
         public static function useScriptTagAttributes($attributes)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->useScriptTagAttributes($attributes);
         }
 
@@ -23681,7 +23739,8 @@ namespace Livewire {
          */
         public static function withUrlParams($params)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->withUrlParams($params);
         }
 
@@ -23692,7 +23751,8 @@ namespace Livewire {
          */
         public static function withQueryParams($params)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->withQueryParams($params);
         }
 
@@ -23703,7 +23763,8 @@ namespace Livewire {
          */
         public static function withCookie($name, $value)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->withCookie($name, $value);
         }
 
@@ -23714,7 +23775,8 @@ namespace Livewire {
          */
         public static function withCookies($cookies)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->withCookies($cookies);
         }
 
@@ -23725,7 +23787,8 @@ namespace Livewire {
          */
         public static function withHeaders($headers)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->withHeaders($headers);
         }
 
@@ -23736,7 +23799,8 @@ namespace Livewire {
          */
         public static function withoutLazyLoading()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->withoutLazyLoading();
         }
 
@@ -23747,7 +23811,8 @@ namespace Livewire {
          */
         public static function test($name, $params = [])
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->test($name, $params);
         }
 
@@ -23758,7 +23823,8 @@ namespace Livewire {
          */
         public static function visit($name)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->visit($name);
         }
 
@@ -23769,7 +23835,8 @@ namespace Livewire {
          */
         public static function actingAs($user, $driver = null)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->actingAs($user, $driver);
         }
 
@@ -23780,7 +23847,8 @@ namespace Livewire {
          */
         public static function isRunningServerless()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->isRunningServerless();
         }
 
@@ -23791,7 +23859,8 @@ namespace Livewire {
          */
         public static function addPersistentMiddleware($middleware)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->addPersistentMiddleware($middleware);
         }
 
@@ -23802,7 +23871,8 @@ namespace Livewire {
          */
         public static function setPersistentMiddleware($middleware)
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->setPersistentMiddleware($middleware);
         }
 
@@ -23813,7 +23883,8 @@ namespace Livewire {
          */
         public static function getPersistentMiddleware()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->getPersistentMiddleware();
         }
 
@@ -23824,7 +23895,8 @@ namespace Livewire {
          */
         public static function flushState()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->flushState();
         }
 
@@ -23835,7 +23907,8 @@ namespace Livewire {
          */
         public static function originalUrl()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->originalUrl();
         }
 
@@ -23846,7 +23919,8 @@ namespace Livewire {
          */
         public static function originalPath()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->originalPath();
         }
 
@@ -23857,7 +23931,8 @@ namespace Livewire {
          */
         public static function originalMethod()
         {
-            /** @var \Livewire\LivewireManager $instance */
+            //Method inherited from \Livewire\LivewireManager 
+            /** @var \Livewire\Volt\LivewireManager $instance */
             return $instance->originalMethod();
         }
 
@@ -24148,6 +24223,137 @@ namespace Illuminate\View {
         public static function response($callback)
         {
             return \Illuminate\View\View::response($callback);
+        }
+
+            }
+    }
+
+namespace Illuminate\Testing {
+    /**
+     * 
+     *
+     * @template TResponse of \Symfony\Component\HttpFoundation\Response
+     * @mixin \Illuminate\Http\Response
+     */
+    class TestResponse {
+        /**
+         * 
+         *
+         * @see \Livewire\Volt\VoltServiceProvider::registerTestingMacros()
+         * @param mixed $component
+         * @static 
+         */
+        public static function assertSeeVolt($component)
+        {
+            return \Illuminate\Testing\TestResponse::assertSeeVolt($component);
+        }
+
+        /**
+         * 
+         *
+         * @see \Livewire\Volt\VoltServiceProvider::registerTestingMacros()
+         * @param mixed $component
+         * @static 
+         */
+        public static function assertDontSeeVolt($component)
+        {
+            return \Illuminate\Testing\TestResponse::assertDontSeeVolt($component);
+        }
+
+            }
+    }
+
+namespace App\Livewire {
+    /**
+     * 
+     *
+     */
+    class Home {
+        /**
+         * 
+         *
+         * @see \Flux\FluxManager::bootModal()
+         * @param mixed $name
+         * @static 
+         */
+        public static function modal($name)
+        {
+            return \App\Livewire\Home::modal($name);
+        }
+
+            }
+    }
+
+namespace App\Livewire\Settings {
+    /**
+     * 
+     *
+     */
+    class Profile {
+        /**
+         * 
+         *
+         * @see \Flux\FluxManager::bootModal()
+         * @param mixed $name
+         * @static 
+         */
+        public static function modal($name)
+        {
+            return \App\Livewire\Settings\Profile::modal($name);
+        }
+
+            }
+    /**
+     * 
+     *
+     */
+    class Password {
+        /**
+         * 
+         *
+         * @see \Flux\FluxManager::bootModal()
+         * @param mixed $name
+         * @static 
+         */
+        public static function modal($name)
+        {
+            return \App\Livewire\Settings\Password::modal($name);
+        }
+
+            }
+    /**
+     * 
+     *
+     */
+    class Appearance {
+        /**
+         * 
+         *
+         * @see \Flux\FluxManager::bootModal()
+         * @param mixed $name
+         * @static 
+         */
+        public static function modal($name)
+        {
+            return \App\Livewire\Settings\Appearance::modal($name);
+        }
+
+            }
+    /**
+     * 
+     *
+     */
+    class Locale {
+        /**
+         * 
+         *
+         * @see \Flux\FluxManager::bootModal()
+         * @param mixed $name
+         * @static 
+         */
+        public static function modal($name)
+        {
+            return \App\Livewire\Settings\Locale::modal($name);
         }
 
             }
@@ -24944,13 +25150,14 @@ namespace  {
          *
          * @param \Illuminate\Contracts\Database\Query\Expression|array|string $attributes
          * @param mixed $value
+         * @param bool $asConditions
          * @return \Illuminate\Database\Eloquent\Builder<static> 
          * @static 
          */
-        public static function withAttributes($attributes, $value = null)
+        public static function withAttributes($attributes, $value = null, $asConditions = true)
         {
             /** @var \Illuminate\Database\Eloquent\Builder $instance */
-            return $instance->withAttributes($attributes, $value);
+            return $instance->withAttributes($attributes, $value, $asConditions);
         }
 
         /**
@@ -25377,7 +25584,7 @@ namespace  {
         }
 
         /**
-         * Pass the query to a given callback.
+         * Pass the query to a given callback and then return it.
          *
          * @param callable($this):  mixed  $callback
          * @return \Illuminate\Database\Eloquent\Builder<static> 
@@ -25387,6 +25594,20 @@ namespace  {
         {
             /** @var \Illuminate\Database\Eloquent\Builder $instance */
             return $instance->tap($callback);
+        }
+
+        /**
+         * Pass the query to a given callback and return the result.
+         *
+         * @template TReturn
+         * @param (callable($this): TReturn) $callback
+         * @return (TReturn is null|void ? $this : TReturn)
+         * @static 
+         */
+        public static function pipe($callback)
+        {
+            /** @var \Illuminate\Database\Eloquent\Builder $instance */
+            return $instance->pipe($callback);
         }
 
         /**
@@ -27515,7 +27736,7 @@ namespace  {
          *
          * @param \Illuminate\Contracts\Database\Query\Expression|\Closure|string $column
          * @param \DateTimeInterface|string|int|float|null $operator
-         * @param \DateTimeInterface|string|int|float|null $value
+         * @param \Illuminate\Contracts\Database\Query\Expression|\DateTimeInterface|string|int|float|null $value
          * @param string $boolean
          * @return \Illuminate\Database\Eloquent\Builder<static> 
          * @static 
