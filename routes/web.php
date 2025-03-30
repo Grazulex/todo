@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\TodoController;
 use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +14,6 @@ Route::middleware('auth')->group(function (): void {
     Route::get('settings/appearance', App\Livewire\Settings\Appearance::class)->name('settings.appearance');
     Route::get('settings/locale', App\Livewire\Settings\Locale::class)->name('settings.locale');
 
-    Route::resource('todos', TodoController::class);
 });
 
 require __DIR__.'/auth.php';

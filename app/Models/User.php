@@ -7,7 +7,6 @@ namespace App\Models;
 use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -20,7 +19,6 @@ use Illuminate\Support\Str;
  * @property-read string $remember_token
  * @property-read string $locale
  * @property-read CarbonImmutable|null $email_verified_at
- * @property-read Todo[] $todos
  * @property-read string $initials
  * @property-read CarbonImmutable $created_at
  * @property-read CarbonImmutable $updated_at
@@ -39,16 +37,6 @@ final class User extends Authenticatable implements MustVerifyEmail
         'password',
         'remember_token',
     ];
-
-    /**
-     * Get the todos for the user.
-     *
-     * @return HasMany<Todo, $this>
-     */
-    public function todos(): HasMany
-    {
-        return $this->hasMany(Todo::class);
-    }
 
     public function initials(): string
     {

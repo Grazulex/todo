@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-6">
+ <div class="flex flex-col gap-6">
     <x-auth-header title="{{ __('global.forgot_password') }}" description="{{ __('global.forgot_password_description') }}" />
 
     <!-- Session Status -->

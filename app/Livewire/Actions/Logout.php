@@ -14,6 +14,7 @@ final class Logout
     /**
      * Log the current user out of the application.
      */
+    /** @phpstan-ignore-next-line  */
     public function __invoke(): Redirector|RedirectResponse
     {
         Auth::guard('web')->logout();

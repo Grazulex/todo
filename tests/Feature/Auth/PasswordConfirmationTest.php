@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use Livewire\Volt\Volt;
+
+uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
 test('confirm password screen can be rendered', function (): void {
     $user = User::factory()->create();
@@ -15,20 +18,25 @@ test('confirm password screen can be rendered', function (): void {
 test('password can be confirmed', function (): void {
     $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->post('/confirm-password', [
-        'password' => 'password',
-    ]);
+    $this->actingAs($user);
 
-    $response->assertRedirect();
-    $response->assertSessionHasNoErrors();
+    $response = Volt::test('auth.confirm-password')
+        ->set('password', 'password')
+        ->call('confirmPassword');
+
+    $response
+        ->assertHasNoErrors()
+        ->assertRedirect(route('home', absolute: false));
 });
 
 test('password is not confirmed with invalid password', function (): void {
     $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->post('/confirm-password', [
-        'password' => 'wrong-password',
-    ]);
+    $this->actingAs($user);
 
-    $response->assertSessionHasErrors();
+    $response = Volt::test('auth.confirm-password')
+        ->set('password', 'wrong-password')
+        ->call('confirmPassword');
+
+    $response->assertHasErrors(['password']);
 });

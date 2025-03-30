@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\Todo;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,10 +24,6 @@ final class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(),
-        ]);
-
-        Todo::factory(50)->create([
-            'user_id' => $user->id,
         ]);
 
     }

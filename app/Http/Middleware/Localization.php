@@ -24,13 +24,16 @@ final class Localization
     {
         // if user is logged in, get the locale from the user settings
         if (auth()->check()) {
-            app()->setLocale(auth()->user()->locale ?? config('app.locale'));
+            /** @var string $locale */
+            $locale = auth()->user()->locale ?? config('app.locale');
+            app()->setLocale($locale);
 
             return $next($request);
         }
 
-        // if user is not logged in, get the locale from the session
-        app()->setLocale(session()->get('locale', config('app.locale')));
+        /** @var string $locale */
+        $locale = session()->get('locale', config('app.locale'));
+        app()->setLocale($locale);
 
         return $next($request);
     }

@@ -83,6 +83,7 @@
                         </div>
                     </div>
                 </flux:menu.radio.group>
+
                 <flux:menu.separator/>
                 <flux:menu.radio.group>
                     <flux:menu.item href="/settings/profile" icon="cog">
